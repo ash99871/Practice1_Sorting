@@ -42,6 +42,11 @@ int main()
 {
     // Leer el archivo palabra por palabra
     ifstream archivo("words_alpha.txt");
+    
+    if(!archivo){
+        cout << "Error al abrir el archivo" << endl;
+        return 1;
+    }
 
     vector<string> palabras(100000);
 
