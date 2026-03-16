@@ -85,9 +85,9 @@ int main() {
     cout << "Tiempo QuickSort: " << tiempoQuick << " microsegundos\n" << endl;
 
     //Mostrar algunas palabras como de prueba
-    for (string p : palabras) {
-        cout << p << endl;
+    cout << "Primeras 20 palabras ordenadas:\n" << endl;
+    for (int i = 0; i < 20 && i < palabras.size(); i++) {
+        cout << palabras[i] << endl;
     }
-
     return 0;
 }
