@@ -86,7 +86,7 @@ int main() {
 
     //Mostrar algunas palabras como de prueba
     cout << "Primeras 20 palabras ordenadas:\n" << endl;
-    for (int i = 0; i < 20 && i < palabras.size(); i++) {
+    for (int i = 0; i < 20; i++) {
         cout << palabras[i] << endl;
     }
     return 0;
