@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <chrono>
 using namespace std;
 
 // Funcion que divide el vector alrededor del pivote
@@ -35,8 +36,7 @@ void ordenarQuick(vector<string>& palabras, int inicio, int fin){
 int main()
 {
     // Leer el archivo palabra por palabra
-    ifstream archivo("words_alpha.txt");
-    
+    ifstream archivo("words_alpha.txt");   
     if(!archivo){
         cout << "Error al abrir el archivo" << endl;
         return 1;
@@ -48,15 +48,22 @@ int main()
     }
     cout << "Archivo cargado" << endl;
 
+    
     // Desordenar palabras
     random_device rd;
     mt19937 g(rd());
     shuffle(palabras.begin(), palabras.end(), g);
     cout << "Archivo desordenado" << endl;
 
-    // Ejecutar QuickSort
+    
+    // Medir tiempo QuickSort
+    auto inicio = chrono::high_resolution_clock::now();
     ordenarQuick(palabras, 0, palabras.size() - 1);
+    auto fin = chrono::high_resolution_clock::now();
+    auto duracion = chrono::duration_cast<chrono::microseconds>(fin - inicio);
     cout << "QuickSort terminado" << endl;
+    cout << "Tiempo QuickSort: " << duracion.count() << " microsegundos" << endl;
+
 
     // Mostrar algunas palabras de prueba
     for(int i = 0; i < 50; i++)
