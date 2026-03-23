@@ -11,8 +11,6 @@
 #include <algorithm>
 using namespace std;
 
-
-
 int main() {
     vector<string> palabras;
     string palabra;
@@ -48,10 +46,7 @@ int main() {
         cout << palabras[i] << endl;
     }
 
-    int n = (int)palabras.size();
-
     //Quicksort
-    medidor::MemoriaTeorica("Quicksort", n);
     medidor::ejecutarYMedir(quickSort, std::ref(palabras), 0, (int)palabras.size()-1);
 
     cout << "Primeras 20 palabras ordenadas del QuickSort:\n" << endl;
@@ -63,7 +58,6 @@ int main() {
     cout << "Archivo desordenado" << endl;
 
     //HeapSort
-    medidor::MemoriaTeorica("HeapSort", n);
     medidor::ejecutarYMedir(heapSort, palabras);
 
     cout << "Primeras 20 palabras ordenadas del HeapSort:\n" << endl;
@@ -76,7 +70,6 @@ int main() {
 
     //AVL Tree
     avlTree arbol;
-    medidor::MemoriaTeorica("AVLTree", n);
     cout<<"Inserción de las palabras"<<endl;
     medidor::ejecutarYMedir( [&]() {
         for (const auto& p: palabras)
