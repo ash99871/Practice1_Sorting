@@ -19,14 +19,16 @@ int main() {
 
     // Leer el archivo palabra por palabra
     ifstream archivo("dataset.txt");
-    while (archivo >> palabra) {
-        palabras.push_back(palabra);
-    }
-
+    
     if (!archivo.is_open()) {
         cerr << "Error: no se pudo abrir dataset.txt" << endl;
         return 1;
     }
+    
+    while (archivo >> palabra) {
+        palabras.push_back(palabra);
+    }
+
 
     archivo.close();
     cout << "Archivo cargado" << endl;
