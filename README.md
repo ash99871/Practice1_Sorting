@@ -227,18 +227,22 @@ Ventajas:
 Desventaja:
   - Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
 
-**HeapSort:** <br>
+**HeapSort:** 
+
 Ventajas:
   - Complejidad garantizada O(n log n)
-  - No depende del orden de los datos <br>
+  - No depende del orden de los datos
+
 Desventajas: 
   - Más lento en la práctica que QuickSort
   - Menor eficiencia en el uso de la memoria cache
 
-**Árbol AVL:** <br>
+**Árbol AVL:** 
+
 Ventajas:
   - Mantiene los datos siempre balanceados
-  - Permite inserciones y búsquedas eficientes O(log n) <br>
+  - Permite inserciones y búsquedas eficientes O(log n) 
+
 Desventajas:
   - Mayor consumo de memoria
   - Más lento debido a las rotaciones y balanceo
