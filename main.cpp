@@ -19,12 +19,12 @@ int main() {
 
     // Leer el archivo palabra por palabra
     ifstream archivo("dataset.txt");
-    
+
     if (!archivo.is_open()) {
         cerr << "Error: no se pudo abrir dataset.txt" << endl;
         return 1;
     }
-    
+
     while (archivo >> palabra) {
         palabras.push_back(palabra);
     }
@@ -32,6 +32,7 @@ int main() {
 
     archivo.close();
     cout << "Archivo cargado" << endl;
+
 
     //Desordenar palabras
     random_device rd;
@@ -69,17 +70,20 @@ int main() {
 
     //AVL Tree
     avlTree arbol;
+    cout<<"Inserción de las palabras"<<endl;
     medidor::ejecutarYMedir( [&]() {
         for (const auto& p: palabras)
             arbol.insertar(p);
     });
+
+    cout<<"ordenamiento de las palabras"<<endl;
     medidor::ejecutarYMedir( [&]() {
         arbol.inorden();
     });
 
-    cout << "Primeras 20 palabras ordenadas del AVL Tree:\n" << endl;
-    for (int i = 0; i < 20; i++) {
-        cout << palabras[i] << endl;
-    }
+    cout<<"Primeros 20 resultados ordenados:\n"<<endl;
+    arbol.imprimirPrimeros20();
+
+
     return 0;
 }
