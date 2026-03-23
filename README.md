@@ -14,7 +14,7 @@ Proyecto en C++ que compara el rendimiento de tres estructuras y algoritmos de o
 
 ## Descripción general
 
-El programa lee un archivo de texto con palabras (`words_alpha.txt`), las carga en un vector, las desordena aleatoriamente y aplica cada algoritmo o estructura de datos secuencialmente. Después de cada operación se imprime un reporte de rendimiento con el tiempo transcurrido y la memoria utilizada. Al finalizar cada etapa se muestran las primeras 20 palabras para verificar que el ordenamiento fue correcto.
+El programa lee un archivo de texto con palabras (`dataset.txt`), las carga en un vector, las desordena aleatoriamente y aplica cada algoritmo o estructura de datos secuencialmente. Después de cada operación se imprime un reporte de rendimiento con el tiempo transcurrido y la memoria utilizada. Al finalizar cada etapa se muestran las primeras 20 palabras para verificar que el ordenamiento fue correcto.
 
 ---
 
@@ -31,7 +31,7 @@ El programa lee un archivo de texto con palabras (`words_alpha.txt`), las carga 
 ## Estructura del proyecto
 
 ```
-Cositas/
+
 ├── main.cpp          # Punto de entrada y flujo principal
 ├── quickSort.h/.cpp  # Implementación de QuickSort
 ├── heapSort.h/.cpp   # Implementación de HeapSort
@@ -48,7 +48,7 @@ Cositas/
 
 Es el punto de entrada del programa y coordina todas las operaciones. Su flujo es el siguiente:
 
-1. Abre y lee el archivo `words_alpha.txt` palabra por palabra, almacenándolas en un `vector<string>`.
+1. Abre y lee el archivo `dataset.txt` palabra por palabra, almacenándolas en un `vector<string>`.
 2. Desordena el vector usando `std::shuffle` con una semilla aleatoria (`std::random_device`), garantizando que el orden sea diferente en cada ejecución.
 3. Imprime las primeras 20 palabras antes de ordenar, a modo de muestra del estado desordenado.
 4. Ejecuta **QuickSort** sobre el vector completo, envuelto en `medidor::ejecutarYMedir` para capturar tiempo y memoria.
@@ -113,7 +113,7 @@ Internamente:
 - Captura nuevamente el tiempo y la memoria al finalizar.
 - Calcula e imprime el tiempo transcurrido en milisegundos y el delta de memoria en KB.
 
-> ⚠️ Este archivo depende de `<windows.h>` y `<psapi.h>`, por lo que el proyecto **solo compila en Windows**.
+Este archivo depende de `<windows.h>` y `<psapi.h>`, por lo que el proyecto **solo compila en Windows**.
 
 ---
 
@@ -122,9 +122,8 @@ Internamente:
 - **Sistema operativo:** Windows (por dependencia de Win32 API en `medidor.h`)
 - **Compilador:** GCC / MinGW o MSVC con soporte C++14
 - **CMake:** versión 4.0 o superior
-- **Archivo de datos:** `words_alpha.txt` en el directorio de ejecución
+- **Archivo de datos:** `dataset.txt` en el directorio de ejecución
 
-> `words_alpha.txt` es una lista de palabras en inglés disponible públicamente. Puedes obtenerla en [dwyl/english-words](https://github.com/dwyl/english-words).
 
 ---
 
@@ -141,13 +140,6 @@ O directamente desde **CLion** abriendo la carpeta del proyecto.
 
 ---
 
-## Uso
-
-Coloca `words_alpha.txt` en el mismo directorio que el ejecutable y ejecuta:
-
-```bash
-./Cositas
-```
 
 ### Salida esperada
 
@@ -156,9 +148,6 @@ Archivo cargado
 Archivo desordenado
 Primeras 20 palabras:
 
-quixotism
-frowzy
-interrenal
 ...
 
 ----------------------------------------
@@ -171,10 +160,6 @@ interrenal
 
 Primeras 20 palabras ordenadas:
 
-a
-aa
-aah
-aahed
 ...
 
 Archivo desordenado
@@ -197,5 +182,5 @@ Archivo desordenado
 - El medidor de memoria usa `GetProcessMemoryInfo` de la API de Windows y no es compatible con Linux/macOS.
 - El árbol AVL ignora palabras duplicadas al insertar.
 - El orden inicial de las palabras varía en cada ejecución por el uso de `std::shuffle` con semilla aleatoria.
-- Si `words_alpha.txt` no se encuentra, el programa continuará con un vector vacío sin lanzar ningún error. Se recomienda agregar una validación del archivo al inicio de `main.cpp`.
+- Si `dataset.txt` no se encuentra, el programa continuará con un vector vacío.
 
