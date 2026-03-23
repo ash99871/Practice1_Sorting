@@ -1,3 +1,6 @@
+#ifndef SORTING_ANALIZADOR_H
+#define SORTING_ANALIZADOR_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -51,3 +54,5 @@ public:
         cout << "========================================\n" << endl;
     }
 };
+
+#endif //SORTING_ANALIZADOR_H
