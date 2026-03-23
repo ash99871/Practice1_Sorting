@@ -121,7 +121,7 @@ Este archivo depende de `<windows.h>` y `<psapi.h>`, por lo que el proyecto **so
 
 - **Sistema operativo:** Windows (por dependencia de Win32 API en `medidor.h`)
 - **Compilador:** GCC / MinGW o MSVC con soporte C++14
-- **CMake:** versión 4.0 o superior
+- **CMake:** versión 3.2 o superior
 - **Archivo de datos:** `dataset.txt` en el directorio de ejecución
 
 
