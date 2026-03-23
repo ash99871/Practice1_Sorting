@@ -14,7 +14,8 @@ Proyecto en C++ que compara el rendimiento de tres estructuras y algoritmos de o
 
 ## Descripción general
 
-El programa lee un archivo de texto con palabras (`dataset.txt`), las carga en un vector, las desordena aleatoriamente y aplica cada algoritmo o estructura de datos secuencialmente. Después de cada operación se imprime un reporte de rendimiento con el tiempo transcurrido y la memoria utilizada. Al finalizar cada etapa se muestran las primeras 20 palabras para verificar que el ordenamiento fue correcto.
+El programa lee un archivo de texto con palabras (`dataset.txt`), las carga en un vector, las desordena aleatoriamente y aplica cada algoritmo o estructura de datos secuencialmente. Después de cada operación se imprime un reporte de rendimiento con el tiempo transcurrido y la memoria utilizada. Al finalizar cada etapa se muestran las primeras 20 palabras para verificar que el ordenamiento fue correcto. Después de cada operación se imprime un reporte de rendimiento con el tiempo transcurrido y la memoria utilizada. 
+Finalmente, se utiliza una clase adicional (`analizador`) para comparar los resultados y determinar cuál algoritmo fue más eficiente.
 
 ---
 
@@ -37,6 +38,7 @@ El programa lee un archivo de texto con palabras (`dataset.txt`), las carga en u
 ├── heapSort.h/.cpp   # Implementación de HeapSort
 ├── avlTree.h/.cpp    # Implementación del árbol AVL
 ├── medidor.h         # Utilidad para medir tiempo y memoria
+├── analizador.h      # Clase para comparar resultados
 └── CMakeLists.txt    # Configuración de compilación
 ```
 
@@ -115,6 +117,19 @@ Internamente:
 - Calcula e imprime el tiempo transcurrido en milisegundos y el delta de memoria en KB.
 - Según la notación Big O, cuánta memoria consume cada algoritmo sumando sus funciones auxiliares.
 
+---
+
+### `analizador.h`
+
+Define la clase analizador, encargada de realizar la comparación final entre los algoritmos QuickSort, HeapSort y Árbol AVL.
+A diferencia de la clase medidor, que mide el rendimiento individual, esta clase recibe los resultados obtenidos (tiempo y memoria) y determina:
+
+-El algoritmo más rápido
+-El algoritmo que consume menos memoria
+-El algoritmo más eficiente en general
+
+El método principal es:
+**`comparar()`**: recibe los valores de tiempo y memoria de cada algoritmo y genera un resumen comparativo en consola, facilitando la interpretación de los resultados.
 
 ---
 
@@ -175,6 +190,65 @@ Archivo desordenado
 
 ...
 ```
+---
+
+## Análisis
+
+**¿Cuál algoritmo tuvo mejor rendimiento?**
+
+-El algoritmo que presentó mejor rendimiento fue QuickSort, ya que obtuvo los menores tiempos de ejecución en la mayoría de las pruebas.
+-Aunque HeapSort también tiene una complejidad O(n log n), fue ligeramente más lento debido al costo adicional de mantener la estructura de heap.
+-Por otro lado, el árbol AVL fue el más lento, ya que requiere múltiples operaciones de balanceo durante la inserción de cada elemento, lo que incrementa el tiempo total de ejecución.
+
+**¿Por qué la complejidad teórica difiere de los resultados prácticos?**
+
+La complejidad teórica (Big O) describe el comportamiento del algoritmo en términos generales, pero no tiene en cuenta factores reales como:
+
+-Accesos a memoria (cache del procesador)
+-Constantes ocultas en las operaciones
+-Overhead de estructuras de datos
+-Implementación específica del algoritmo
+
+Por ejemplo, aunque QuickSort y HeapSort tienen la misma complejidad promedio O(n log n), QuickSort suele ser más rápido en la práctica porque:
+
+-Trabaja mejor con la memoria (cache-friendly)
+-Realiza menos operaciones adicionales
+
+En cambio, HeapSort requiere más accesos a memoria dispersos, lo que lo hace más lento en la práctica.
+
+**¿Qué ventajas y desventajas presenta cada estructura?**
+
+**QuickSort:**
+Ventajas:
+  -Muy rápido en la práctica
+  -Bajo uso de memoria adicional
+Desventaja:
+  -Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
+
+**HeapSort:**
+Ventajas:
+  -Complejidad garantizada O(n log n)
+  -No depende del orden de los datos
+Desventajas:
+  -Más lento en la práctica que QuickSort
+  -Menor eficiencia en el uso de la memoria cache
+
+**Árbol AVL:**
+Ventajas:
+  -Mantiene los datos siempre balanceados
+  -Permite inserciones y búsquedas eficientes O(log n)
+Desventajas:
+  -Mayor consumo de memoria
+  -Más lento debido a las rotaciones y balanceo
+  -No es la mejor opción para ordenamiento masivo en comparación con arreglos
+  
+**Conclusión**
+
+A partir de los resultados obtenidos, concluimos que:
+
+QuickSort es el algoritmo más eficiente para este problema
+HeapSort es una alternativa estable pero menos rápida
+El árbol AVL, aunque eficiente como estructura de búsqueda, no es la mejor opción para tareas de ordenamiento masivo
 
 ---
 
