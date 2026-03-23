@@ -124,9 +124,9 @@ Internamente:
 Define la clase analizador, encargada de realizar la comparación final entre los algoritmos QuickSort, HeapSort y Árbol AVL.
 A diferencia de la clase medidor, que mide el rendimiento individual, esta clase recibe los resultados obtenidos (tiempo y memoria) y determina:
 
--El algoritmo más rápido
--El algoritmo que consume menos memoria
--El algoritmo más eficiente en general
+- El algoritmo más rápido
+- El algoritmo que consume menos memoria
+- El algoritmo más eficiente en general
 
 El método principal es:
 **`comparar()`**: recibe los valores de tiempo y memoria de cada algoritmo y genera un resumen comparativo en consola, facilitando la interpretación de los resultados.
@@ -221,26 +221,26 @@ En cambio, HeapSort requiere más accesos a memoria dispersos, lo que lo hace m�
 **QuickSort:** <br>
 Ventajas:
   - Muy rápido en la práctica
-  - Bajo uso de memoria adicional
+  - Bajo uso de memoria adicional <br>
 Desventaja:
   - Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
 
 **HeapSort:** <br>
-Ventajas: <br>
+Ventajas:
   - Complejidad garantizada O(n log n)
-  - No depende del orden de los datos
-Desventajas: <br>
+  - No depende del orden de los datos <br>
+Desventajas: 
   - Más lento en la práctica que QuickSort
   - Menor eficiencia en el uso de la memoria cache
 
-**Árbol AVL:**
+**Árbol AVL:** <br>
 Ventajas:
-  -Mantiene los datos siempre balanceados
-  -Permite inserciones y búsquedas eficientes O(log n)
+  - Mantiene los datos siempre balanceados
+  - Permite inserciones y búsquedas eficientes O(log n) <br>
 Desventajas:
-  -Mayor consumo de memoria
-  -Más lento debido a las rotaciones y balanceo
-  -No es la mejor opción para ordenamiento masivo en comparación con arreglos
+  - Mayor consumo de memoria
+  - Más lento debido a las rotaciones y balanceo
+  - No es la mejor opción para ordenamiento masivo en comparación con arreglos
   
 **Conclusión**
 
