@@ -12,6 +12,7 @@ add_executable(Sorting
         heapSort.h
         main.cpp
         medidor.h
+        analizador.h
         quickSort.cpp
         quickSort.h)
 
