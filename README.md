@@ -108,12 +108,13 @@ Define la clase `medidor`, una utilidad para medir el rendimiento de cualquier f
 
 Internamente:
 - Captura la memoria del proceso **antes** de ejecutar la función usando `GetProcessMemoryInfo` de la API de Windows (`psapi.h`).
+  Este archivo depende de `<windows.h>` y `<psapi.h>`, por lo que el proyecto **solo compila en Windows**.
 - Registra el tiempo de inicio con `std::chrono::high_resolution_clock`.
 - Ejecuta la función con `std::forward` para un reenvío perfecto de argumentos.
 - Captura nuevamente el tiempo y la memoria al finalizar.
 - Calcula e imprime el tiempo transcurrido en milisegundos y el delta de memoria en KB.
+- Según la notación Big O, cuánta memoria consume cada algoritmo sumando sus funciones auxiliares.
 
-Este archivo depende de `<windows.h>` y `<psapi.h>`, por lo que el proyecto **solo compila en Windows**.
 
 ---
 
