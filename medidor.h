@@ -19,14 +19,14 @@ public:
         return 0;
     }
 
-    // Plantilla
+    
     template <typename Func, typename... Args>
     static void ejecutarYMedir(Func func, Args&&... args) {
-        // Limpieza previa sugerida para mediciones más estables
+        
         size_t memoriaInicial = obtenerMemoria();
         auto tiempoInicio = std::chrono::high_resolution_clock::now();
 
-        // Ejecución de la función del usuario
+        
         func(std::forward<Args>(args)...);
 
         auto tiempoFin = std::chrono::high_resolution_clock::now();
@@ -36,7 +36,7 @@ public:
         std::chrono::duration<double, std::milli> duracion = tiempoFin - tiempoInicio;
         long long diferenciaMemoria = static_cast<long long>(memoriaFinal) - static_cast<long long>(memoriaInicial);
 
-        // Reporte en consola
+        
         std::cout << "\n----------------------------------------" << std::endl;
         std::cout << "        REPORTE DE RENDIMIENTO          " << std::endl;
         std::cout << "------------------------------------------" << std::endl;
@@ -53,7 +53,7 @@ public:
         std::cout << " Elementos (n): " << n << std::endl;
 
         if (algoritmo == "QuickSort") {
-            // Estructura principal: vector<string> — cada string ocupa ~32 bytes (SSO en MSVC)
+            // Cada string ocupa ~32 bytes (SSO en MSVC)
             size_t tamVector = n * sizeof(std::string);
             // Stack de recursión: O(log n) en promedio, O(n) en peor caso
             size_t stackRecursion = (size_t)(std::log2(n) * (sizeof(int) * 2)); // 2 ints por frame (inicio, fin)
