@@ -196,44 +196,42 @@ Archivo desordenado
 
 **¿Cuál algoritmo tuvo mejor rendimiento?**
 
--El algoritmo que presentó mejor rendimiento fue QuickSort, ya que obtuvo los menores tiempos de ejecución en la mayoría de las pruebas.
--Aunque HeapSort también tiene una complejidad O(n log n), fue ligeramente más lento debido al costo adicional de mantener la estructura de heap.
--Por otro lado, el árbol AVL fue el más lento, ya que requiere múltiples operaciones de balanceo durante la inserción de cada elemento, lo que incrementa el tiempo total de ejecución.
+- El algoritmo que presentó mejor rendimiento fue QuickSort, ya que obtuvo los menores tiempos de ejecución en la mayoría de las pruebas.
+- Aunque HeapSort también tiene una complejidad O(n log n), fue ligeramente más lento debido al costo adicional de mantener la estructura de heap.
+- Por otro lado, el árbol AVL fue el más lento, ya que requiere múltiples operaciones de balanceo durante la inserción de cada elemento, lo que incrementa el tiempo total de ejecución.
 
 **¿Por qué la complejidad teórica difiere de los resultados prácticos?**
 
 La complejidad teórica (Big O) describe el comportamiento del algoritmo en términos generales, pero no tiene en cuenta factores reales como:
 
--Accesos a memoria (cache del procesador)
--Constantes ocultas en las operaciones
--Overhead de estructuras de datos
--Implementación específica del algoritmo
+- Accesos a memoria (cache del procesador)
+- Constantes ocultas en las operaciones
+- Overhead de estructuras de datos
+- Implementación específica del algoritmo
 
 Por ejemplo, aunque QuickSort y HeapSort tienen la misma complejidad promedio O(n log n), QuickSort suele ser más rápido en la práctica porque:
 
--Trabaja mejor con la memoria (cache-friendly)
--Realiza menos operaciones adicionales
+- Trabaja mejor con la memoria (cache-friendly)
+- Realiza menos operaciones adicionales
 
 En cambio, HeapSort requiere más accesos a memoria dispersos, lo que lo hace más lento en la práctica.
 
 **¿Qué ventajas y desventajas presenta cada estructura?**
 
-**QuickSort:**
+**QuickSort:** <br>
 Ventajas:
-
-  -Muy rápido en la práctica
-  -Bajo uso de memoria adicional
+  - Muy rápido en la práctica
+  - Bajo uso de memoria adicional
 Desventaja:
+  - Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
 
-  -Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
-
-**HeapSort:**
-Ventajas:
-  -Complejidad garantizada O(n log n)
-  -No depende del orden de los datos
-Desventajas:
-  -Más lento en la práctica que QuickSort
-  -Menor eficiencia en el uso de la memoria cache
+**HeapSort:** <br>
+Ventajas: <br>
+  - Complejidad garantizada O(n log n)
+  - No depende del orden de los datos
+Desventajas: <br>
+  - Más lento en la práctica que QuickSort
+  - Menor eficiencia en el uso de la memoria cache
 
 **Árbol AVL:**
 Ventajas:
