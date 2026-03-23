@@ -220,9 +220,11 @@ En cambio, HeapSort requiere más accesos a memoria dispersos, lo que lo hace m�
 
 **QuickSort:**
 Ventajas:
+
   -Muy rápido en la práctica
   -Bajo uso de memoria adicional
 Desventaja:
+
   -Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
 
 **HeapSort:**
