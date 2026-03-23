@@ -218,10 +218,12 @@ En cambio, HeapSort requiere más accesos a memoria dispersos, lo que lo hace m�
 
 **¿Qué ventajas y desventajas presenta cada estructura?**
 
-**QuickSort:** <br>
+**QuickSort:**
+
 Ventajas:
   - Muy rápido en la práctica
-  - Bajo uso de memoria adicional <br>
+  - Bajo uso de memoria adicional
+
 Desventaja:
   - Puede degradarse a O(n²) en el peor caso (aunque poco probable con datos aleatorios)
 
