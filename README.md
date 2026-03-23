@@ -248,7 +248,7 @@ Desventajas:
   - Más lento debido a las rotaciones y balanceo
   - No es la mejor opción para ordenamiento masivo en comparación con arreglos
   
-**Conclusión**
+## Conclusión
 
 A partir de los resultados obtenidos, concluimos que:
 
