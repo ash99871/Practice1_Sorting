@@ -88,7 +88,6 @@ avlTree::Nodo* avlTree::insertar(Nodo* n, const string& palabra) {
 void avlTree::inorden(Nodo* n) {
     if (!n) return;
     inorden(n->l);
-    std::cout << n->palabra << "\n";
     inorden(n->r);
 }
 
@@ -106,4 +105,22 @@ void avlTree::insertar(const std::string &palabra) {
 
 void avlTree::inorden() {
     inorden(raiz);
+}
+
+void avlTree::inordenLimitado(Nodo* n, int& i) {
+    if (!n || i >= 20) return;
+
+    inordenLimitado(n->l, i);
+
+    if (i < 20) {
+        cout << n->palabra << endl;
+        i++;
+    }
+
+    inordenLimitado(n->r, i);
+}
+
+void avlTree::imprimirPrimeros20() {
+    int c = 0;
+    inordenLimitado(raiz, c);
 }
