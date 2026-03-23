@@ -14,3 +14,5 @@ add_executable(Sorting
         medidor.h
         quickSort.cpp
         quickSort.h)
+
+file(COPY dataset.txt DESTINATION ${CMAKE_BINARY_DIR})
