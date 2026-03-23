@@ -18,17 +18,18 @@ int main() {
     string palabra;
 
     // Leer el archivo palabra por palabra
-    ifstream archivo("words_alpha.txt");
+    ifstream archivo("dataset.txt");
     while (archivo >> palabra) {
         palabras.push_back(palabra);
     }
-    archivo.close();
-    cout << "Archivo cargado" << endl;
 
     if (!archivo.is_open()) {
-        cerr << "Error: no se pudo abrir words_alpha.txt" << endl;
+        cerr << "Error: no se pudo abrir dataset.txt" << endl;
         return 1;
     }
+
+    archivo.close();
+    cout << "Archivo cargado" << endl;
 
     //Desordenar palabras
     random_device rd;
