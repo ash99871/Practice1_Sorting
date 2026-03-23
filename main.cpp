@@ -2,6 +2,7 @@
 #include "quickSort.h"
 #include "heapSort.h"
 #include "medidor.h"
+#include "analizador.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,10 +13,11 @@ using namespace std;
 
 
 
-
 int main() {
     vector<string> palabras;
     string palabra;
+    double tiempoQuick, tiempoHeap, tiempoAVL;
+    long memoriaQuick, memoriaHeap, memoriaAVL;
 
     // Leer el archivo palabra por palabra
     ifstream archivo("dataset.txt");
@@ -89,6 +91,11 @@ int main() {
     cout<<"Primeros 20 resultados ordenados:\n"<<endl;
     arbol.imprimirPrimeros20();
 
+    analizador::comparar(
+    tiempoQuick, memoriaQuick,
+    tiempoHeap, memoriaHeap,
+    tiempoAVL, memoriaAVL
+    );
 
     return 0;
 }
